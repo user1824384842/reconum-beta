@@ -1,0 +1,11 @@
+# Never copy host-downloaded templates into the build context —
+# the Dockerfile fetches them fresh from ProjectDiscovery at build time.
+nuclei-templates/
+
+# Don't copy scan output or dev artifacts into the image
+scans/
+.env
+*.zip
+__pycache__/
+*.pyc
+.git/

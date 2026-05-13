@@ -1,0 +1,19 @@
+services:
+  reconum:
+    build: .
+    image: flu1d/reconum
+    container_name: reconum_engine
+
+    volumes:
+      # Dev only: live-reload source without rebuilding.
+      # Remove this line for a fully self-contained production run.
+      - ./src:/app/src
+      # Scan results persist to the host so you can read them after the container stops.
+      - ./scans:/app/scans
+
+    tty: true
+    stdin_open: true
+
+    # Uncomment to pass API keys for subfinder cloud, shodan, etc.
+    # env_file:
+    #   - .env
